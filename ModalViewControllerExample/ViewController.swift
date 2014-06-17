@@ -13,17 +13,59 @@ class ViewController: UIViewController {
     let debug = true;
     let autoresizingMask = false;
     
+    var button:UIButton = UIButton.buttonWithType(UIButtonType.System) as UIButton
+    var topConstraints: AnyObject[] = []
+    var trailingConstraints: AnyObject[] = []
+    
+    override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator!) {
+        self.view.removeConstraints(topConstraints)
+        self.view.removeConstraints(trailingConstraints)
+        self.view.setNeedsUpdateConstraints()
+    }
+    
+    override func updateViewConstraints() {
+        super.updateViewConstraints()
+        println("updateConstraints()")
+        
+        let views = [
+            "button": button
+        ]
+        
+        let topMetrics = [
+            "topMargin": UIScreen.mainScreen().bounds.height/2 - button.intrinsicContentSize().height/2
+        ]
+        
+        let trailingMetrics = [
+            "trailingMargin": UIScreen.mainScreen().bounds.width/2 - button.intrinsicContentSize().width/2
+        ]
+
+        topConstraints = NSLayoutConstraint.constraintsWithVisualFormat("V:|-topMargin-[button(<=800)]-(>=100)-|", options: nil, metrics: topMetrics, views: views)
+        trailingConstraints = NSLayoutConstraint.constraintsWithVisualFormat("H:|-trailingMargin-[button(<=800)]-(>=100)-|", options: nil, metrics: trailingMetrics, views: views)
+        
+//        if(self.view.bounds.height == 568.0) {
+//            topConstraints = NSLayoutConstraint.constraintsWithVisualFormat("V:|-topMargin-[button(<=800)]-(>=100)-|", options: nil, metrics: metrics, views: views)
+//            
+//        } else if (self.view.bounds.height == 320.0) {
+//            topConstraints = NSLayoutConstraint.constraintsWithVisualFormat("V:|-topMargin-[button(<=800)]-(>=100)-|", options: nil, metrics: metrics, views: views)
+//        }
+        self.view.addConstraints(topConstraints)
+        self.view.addConstraints(trailingConstraints)
+
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        println("viewDidLoad()")
         
-        let button: UIButton = UIButton.buttonWithType(UIButtonType.System) as UIButton
+        //Zaimplementowac w view requiresConstraintBasedLayout() na true
         
         let views = [
             "button": button
         ]
         
         let metrics = [
-            "topMargin": UIScreen.mainScreen().bounds.height/2 - button.layer.bounds.height/2
+            "topMargin": UIScreen.mainScreen().bounds.height/2 - button.intrinsicContentSize().height/2,
+            "trailingMargin": UIScreen.mainScreen().bounds.width/2 - button.intrinsicContentSize().width/2
         ]
         
         button.setTitle("Next", forState: UIControlState.Normal)
@@ -35,7 +77,8 @@ class ViewController: UIViewController {
         if (!self.autoresizingMask) {
             println("AutoresizingMask mode OFF")
             button.setTranslatesAutoresizingMaskIntoConstraints(false)
-            self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-topMargin-[button(<=800)]-(>=100)-|", options: nil, metrics: metrics, views: views))
+//            constraints = NSLayoutConstraint.constraintsWithVisualFormat("V:|-topMargin-[button(<=800)]-(>=100)-|", options: nil, metrics: metrics, views: views)
+//            self.view.addConstraints(constraints)
         } else {
             button.sizeToFit()
             button.center = CGPointMake(UIScreen.mainScreen().bounds.width/2, UIScreen.mainScreen().bounds.height/2)
@@ -49,9 +92,12 @@ class ViewController: UIViewController {
             button.layer.borderColor = UIColor.redColor().CGColor
             button.layer.borderWidth = 1
             
-            for i in 0 .. self.view.constraints().count {
-                println("Constraint \(i): \(self.view.constraints()[i])")
-            }
+            println("Button: \(button.tag)")
+            println("button.intrinsicContentSize() \(button.intrinsicContentSize())")
+            
+//            for i in 0 .. self.view.constraints().count {
+//                println("Constraint \(i): \(self.view.constraints()[i])")
+//            }
         }
         
         println("View did load.")
