@@ -17,6 +17,17 @@ class ViewController: UIViewController {
     var topConstraints: AnyObject[] = []
     var trailingConstraints: AnyObject[] = []
     
+    func clickNext() {
+        println("clickNext()")
+        
+        let nextViewController: NextViewController = NextViewController()
+//        nextViewController.setP
+        nextViewController.view.backgroundColor = UIColor.whiteColor()
+        self.presentViewController(nextViewController, animated: true, completion: nil)
+        
+        
+    }
+    
     override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator!) {
         self.view.removeConstraints(topConstraints)
         self.view.removeConstraints(trailingConstraints)
@@ -70,9 +81,8 @@ class ViewController: UIViewController {
         
         button.setTitle("Next", forState: UIControlState.Normal)
         button.setTitleColor(UIColor.blueColor(), forState: .Normal)
+        button.addTarget(self, action: "clickNext", forControlEvents: UIControlEvents.TouchUpInside)
         self.view.addSubview(button)
-        
-        
         
         if (!self.autoresizingMask) {
             println("AutoresizingMask mode OFF")

@@ -12,6 +12,7 @@
 		54428B4D194ABCE90062D5BF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 54428B4B194ABCE90062D5BF /* Main.storyboard */; };
 		54428B4F194ABCE90062D5BF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 54428B4E194ABCE90062D5BF /* Images.xcassets */; };
 		54428B5B194ABCE90062D5BF /* ModalViewControllerExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54428B5A194ABCE90062D5BF /* ModalViewControllerExampleTests.swift */; };
+		54D1E6A419508DFB00C339D0 /* NextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D1E6A319508DFB00C339D0 /* NextViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +35,7 @@
 		54428B54194ABCE90062D5BF /* ModalViewControllerExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ModalViewControllerExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		54428B59194ABCE90062D5BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		54428B5A194ABCE90062D5BF /* ModalViewControllerExampleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalViewControllerExampleTests.swift; sourceTree = "<group>"; };
+		54D1E6A319508DFB00C339D0 /* NextViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NextViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 			children = (
 				54428B47194ABCE90062D5BF /* AppDelegate.swift */,
 				54428B49194ABCE90062D5BF /* ViewController.swift */,
+				54D1E6A319508DFB00C339D0 /* NextViewController.swift */,
 				54428B4B194ABCE90062D5BF /* Main.storyboard */,
 				54428B4E194ABCE90062D5BF /* Images.xcassets */,
 				54428B45194ABCE90062D5BF /* Supporting Files */,
@@ -209,6 +212,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				54428B4A194ABCE90062D5BF /* ViewController.swift in Sources */,
+				54D1E6A419508DFB00C339D0 /* NextViewController.swift in Sources */,
 				54428B48194ABCE90062D5BF /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -397,6 +401,7 @@
 				54428B60194ABCE90062D5BF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		54428B61194ABCE90062D5BF /* Build configuration list for PBXNativeTarget "ModalViewControllerExampleTests" */ = {
 			isa = XCConfigurationList;
@@ -405,6 +410,7 @@
 				54428B63194ABCE90062D5BF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
