@@ -24,26 +24,35 @@ class NextViewController: UIViewController {
     
     func clickBack() {
         println("clickBack()")
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
     
     override func viewDidLoad() {
         println("NextViewController: viewDidLoad()")
         button.setTitle("Back", forState: UIControlState.Normal)
         button.setTitleColor(UIColor.blueColor(), forState: .Normal)
-//        button.addTarget(self, action: "clickBack:", forControlEvents: UIControlEvents.TouchUpInside)
+        button.addTarget(self, action: "clickBack", forControlEvents: UIControlEvents.TouchUpInside)
         self.view.addSubview(button)
         
-        let views = [
-            "buttonBack": button
-        ]
-        
-        let topMetrics = [
-            "topMargin": UIScreen.mainScreen().bounds.height/2 - button.intrinsicContentSize().height/2
-        ]
+//        let views = [
+//            "buttonBack": button
+//        ]
+//        
+//        let topMetrics = [
+//            "topMargin": UIScreen.mainScreen().bounds.height/2 - button.intrinsicContentSize().height/2
+//        ]
         
         button.sizeToFit()
+        button.center = CGPointMake(UIScreen.mainScreen().bounds.width/2, UIScreen.mainScreen().bounds.height/2)
+        
 //        let topConstraints = NSLayoutConstraint.constraintsWithVisualFormat("V:|-topMargin-[buttonBack(<=800)]-(>=100)-|", options: nil, metrics: topMetrics, views: views)
 //        self.view.addConstraints(topConstraints)
+        
+        println("!!! \(self.presentedViewController)")
+        println("!!! \(self.presentingViewController)")
+        println("!!! \(self.transitioningDelegate)")
+        println("!!! \(self.transitionCoordinator())")
+        
     }
     
 }

@@ -20,8 +20,13 @@ class ViewController: UIViewController {
     func clickNext() {
         println("clickNext()")
         
+        println("!!! \(self.presentedViewController)")
+        println("!!! \(self.presentingViewController)")
+        println("!!! \(self.transitioningDelegate)")
+        println("!!! \(self.transitionCoordinator())")
+        
         let nextViewController: NextViewController = NextViewController()
-//        nextViewController.setP
+        nextViewController.modalTransitionStyle = UIModalTransitionStyle.CrossDissolve
         nextViewController.view.backgroundColor = UIColor.whiteColor()
         self.presentViewController(nextViewController, animated: true, completion: nil)
         
